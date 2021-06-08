@@ -16,7 +16,6 @@ public class greetTest {
 
     }
 
-
     @Test
 
     public void shouldBeAbleToGreetInEnglish() {
@@ -65,6 +64,41 @@ public class greetTest {
 
         Assertions.assertEquals(greet.getUsers().get("kagiso"), 2);
     }
+
+    @Test
+
+    public void shouldCheckIfNamesAreInTheList() {
+        Greet greet = new Greet();
+        greet.greetName("sivu", "Italian");
+        greet.greetName("kagiso", "English");
+        greet.greetName("charl", "Chinese");
+        greet.greetName("sivu", "Chinese");
+        greet.greetName("sivu", "English");
+        greet.greetName("kagiso", "Italian");
+
+        Assertions.assertTrue(greet.getUsers().containsKey("sivu"));
+        Assertions.assertTrue(greet.getUsers().containsKey("kagiso"));
+        Assertions.assertFalse(greet.getUsers().containsKey("zola"));
+        Assertions.assertFalse(greet.getUsers().containsKey("bayanda"));
+        Assertions.assertTrue(greet.getUsers().containsKey("charl"));
+
+    }
+
+    @Test
+
+    public void shouldBeAbleToClearNamesInTheHashMap() {
+        Greet greet = new Greet();
+        greet.greetName("zola", "Italian");
+        greet.greetName("charl", "Chinese");
+        greet.greetName("sivu", "English");
+        greet.greetName("kagiso", "Chinese");
+        greet.clear();
+
+        Assertions.assertEquals(greet.counter(), 0);
+
+
+    }
+
 }
 
 
