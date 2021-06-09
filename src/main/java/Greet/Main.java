@@ -24,6 +24,10 @@ public class Main {
                     break;
 
                 case "greeted":
+                    System.out.println(greet.getUsers());
+                    break;
+
+                case "greeted ":
                     String name1 = parameter[1];
                     System.out.println(greet.getUsers().get(name1));
                     break;
@@ -43,8 +47,8 @@ public class Main {
 
                 case "counter":
                     System.out.println(greet.counter());
-                case "exit":
                     break;
+
             }
         }
     }

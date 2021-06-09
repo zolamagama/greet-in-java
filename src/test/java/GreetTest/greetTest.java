@@ -99,6 +99,18 @@ public class greetTest {
 
     }
 
+    @Test
+
+    public void shouldBeAbleToClearOneName() {
+        Greet greet = new Greet();
+        greet.greetName("phamza", "chinese");
+        greet.greetName("hloni", "italian");
+        greet.greetName("tukelo", "english");
+        greet.clearForOneUser("hloni");
+
+        Assertions.assertEquals(greet.counter(), 2);
+    }
+
 }
 
 
